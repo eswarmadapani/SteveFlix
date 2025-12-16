@@ -6,6 +6,8 @@ import connectDB from "./config/db.js";
 import User from "./models/User.js";
 import authRoutes from "./routes/authRoutes.js";
 import movieRoutes from "./routes/movieRoutes.js";
+import savedRoutes from "./routes/savedRoutes.js";
+
 dotenv.config();
 
 const app = express();
@@ -17,6 +19,7 @@ connectDB();
 
 app.use("/api/auth" , authRoutes);
 app.use("/api/movies", movieRoutes);
+app.use("/api/watchlist", savedRoutes);
 
 app.get("/", (req,res) => {
     console.log("backend is running")
